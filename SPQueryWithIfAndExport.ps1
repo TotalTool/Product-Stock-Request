@@ -25,7 +25,6 @@ do
         $Status = $item["Status"]
         $StartDate = $item["Created"]
         if(($Status -eq "Approved") -and ($StartDate -lt (Get-Date).AddDays(-90))){
-            #Write-host $StartDate, $Status
             $expobj = ""|select Rep, PN1, PN2, PN3, Status, StartDate
             $expobj.Rep = $item["Author"]
             $expobj.PN1 = $item["_x0031__x002e__x0020_Product_x00"]
@@ -33,7 +32,6 @@ do
             $expobj.PN3 = $item["_x0033__x002e__x0020_Product_x00"]
             $expobj.Status = $item["Status"]
             $expobj.StartDate = $item["Created"]
-            #Write-Host $expobj
             $ExportCollection += $expobj
             }
         
